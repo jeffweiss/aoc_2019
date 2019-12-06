@@ -3,6 +3,9 @@ defmodule Aoc2019Test do
   doctest Aoc2019
   doctest Day1
   doctest Day2
+  doctest Day3
+  doctest Day4
+  doctest Day5
 
   test "greets the world" do
     assert Aoc2019.hello() == :world
