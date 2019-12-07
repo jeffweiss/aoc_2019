@@ -1,5 +1,4 @@
 defmodule Day6 do
-
   @doc """
   ## Examples
 
@@ -10,7 +9,7 @@ defmodule Day6 do
   """
   def build_graph(list) do
     Enum.reduce(list, %{}, fn [left, right], graph ->
-      Map.update(graph, left, [right], &([right|&1]))
+      Map.update(graph, left, [right], &[right | &1])
     end)
   end
 
@@ -38,7 +37,7 @@ defmodule Day6 do
     text
     |> String.split("\n")
     |> Stream.map(fn line -> String.split(line, ")") end)
-    |> Enum.to_list
+    |> Enum.to_list()
   end
 
   @doc """
@@ -50,8 +49,8 @@ defmodule Day6 do
   def total_height(graph) do
     ["COM"]
     |> record_height(graph, 0, %{})
-    |> Map.values
-    |> Enum.sum
+    |> Map.values()
+    |> Enum.sum()
   end
 
   @doc """
@@ -62,18 +61,20 @@ defmodule Day6 do
   """
   def part1 do
     "priv/d06p1"
-    |> File.stream!
+    |> File.stream!()
     |> Stream.map(&String.strip/1)
     |> Stream.map(fn line -> String.split(line, ")") end)
-    |> Enum.to_list
+    |> Enum.to_list()
     |> build_graph
     |> total_height
   end
 
   def convert_to_digraph(map) do
-    dg = :digraph.new
+    dg = :digraph.new()
+
     Enum.reduce(map, dg, fn {k, v}, dg ->
       v1 = :digraph.add_vertex(dg, k, k)
+
       Enum.reduce(v, dg, fn n, dg ->
         v2 = :digraph.add_vertex(dg, n, n)
         # we can transit both directions in the directed graph
@@ -94,15 +95,15 @@ defmodule Day6 do
   """
   def part2 do
     "priv/d06p1"
-    |> File.stream!
+    |> File.stream!()
     |> Stream.map(&String.strip/1)
     |> Stream.map(fn line -> String.split(line, ")") end)
-    |> Enum.to_list
+    |> Enum.to_list()
     |> build_graph
     |> convert_to_digraph
     |> :digraph.get_short_path("YOU", "SAN")
     |> length
-    |> Kernel.-(3) # you, santa, and the body you're already orbiting
+    # you, santa, and the body you're already orbiting
+    |> Kernel.-(3)
   end
-
 end

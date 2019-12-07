@@ -1,6 +1,6 @@
 defmodule Day4 do
   def part1 do
-    Enum.filter(124075..580769, &number_okay?/1)
+    Enum.filter(124_075..580_769, &number_okay?/1)
     |> length()
   end
 
@@ -8,12 +8,12 @@ defmodule Day4 do
   # not 1531
   # not 1338
   def part2 do
-    124075..580769
+    124_075..580_769
     |> Stream.map(&Integer.digits/1)
     |> Stream.filter(&increasing?/1)
     |> Stream.filter(&has_double?/1)
-    |> Stream.filter(&(!(bulk_match?(&1))))
-    |> Enum.to_list
+    |> Stream.filter(&(!bulk_match?(&1)))
+    |> Enum.to_list()
   end
 
   def number_okay?(number) do
@@ -36,14 +36,15 @@ defmodule Day4 do
   """
   def has_double?([]), do: false
   def has_double?([_]), do: false
-  def has_double?([x, x|rest]), do: true
-  def has_double?([x|rest]), do: has_double?(rest)
-
+  def has_double?([x, x | rest]), do: true
+  def has_double?([x | rest]), do: has_double?(rest)
 
   def increasing?([_]), do: true
-  def increasing?([x, y|rest]) when x <= y do
-    increasing?([y|rest])
+
+  def increasing?([x, y | rest]) when x <= y do
+    increasing?([y | rest])
   end
+
   def increasing?(_), do: false
 
   @doc """
