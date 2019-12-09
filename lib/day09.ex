@@ -14,6 +14,7 @@ defmodule Day9 do
     |> IntCode.load_program()
     |> Map.put(:inputs, [1])
     |> IntCode.run_program()
+    |> Map.get(:output)
   end
 
   @doc """
@@ -28,5 +29,6 @@ defmodule Day9 do
     |> IntCode.load_program()
     |> Map.put(:inputs, [2])
     |> IntCode.run_program()
+    |> Map.get(:output)
   end
 end
