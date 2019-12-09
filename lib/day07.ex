@@ -6,6 +6,7 @@ defmodule Day7 do
   """
   def part1 do
     program = input()
+
     perms =
       0..4
       |> Enum.to_list()
@@ -20,8 +21,8 @@ defmodule Day7 do
 
   def input do
     File.read!("priv/d07p1")
-    |> String.trim
-    |> IntCode.load_program
+    |> String.trim()
+    |> IntCode.load_program()
   end
 
   @doc """
@@ -125,6 +126,7 @@ defmodule Day7 do
   """
   def part2 do
     input = input()
+
     perms =
       5..9
       |> Enum.to_list()

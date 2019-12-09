@@ -1,5 +1,4 @@
 defmodule Day5 do
-
   @doc """
   ## Examples
       iex> Day5.part1
@@ -8,7 +7,7 @@ defmodule Day5 do
   def part1 do
     input()
     |> Map.put(:inputs, [1])
-    |> IntCode.run_program
+    |> IntCode.run_program()
     |> Map.get(:output)
   end
 
@@ -20,14 +19,14 @@ defmodule Day5 do
   def part2 do
     input()
     |> Map.put(:inputs, [5])
-    |> IntCode.run_program
+    |> IntCode.run_program()
     |> Map.get(:output)
   end
 
   def input do
     "priv/d05p1"
-    |> File.read!
-    |> String.trim
-    |> IntCode.load_program
+    |> File.read!()
+    |> String.trim()
+    |> IntCode.load_program()
   end
 end

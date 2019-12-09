@@ -1,5 +1,4 @@
 defmodule Day2 do
-
   @doc """
   ## Examples
       iex> Day2.part1
@@ -11,8 +10,8 @@ defmodule Day2 do
 
   def input do
     File.read!("priv/d02p1")
-    |> String.trim
-    |> IntCode.load_program
+    |> String.trim()
+    |> IntCode.load_program()
   end
 
   def run_with_input(program, noun, verb) do
@@ -36,6 +35,7 @@ defmodule Day2 do
   """
   def part2(desired_output) do
     program = input()
+
     for noun <- 0..99, verb <- 0..99 do
       [noun, verb]
     end
