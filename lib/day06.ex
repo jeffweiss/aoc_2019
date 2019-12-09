@@ -62,7 +62,7 @@ defmodule Day6 do
   def part1 do
     "priv/d06p1"
     |> File.stream!()
-    |> Stream.map(&String.strip/1)
+    |> Stream.map(&String.trim/1)
     |> Stream.map(fn line -> String.split(line, ")") end)
     |> Enum.to_list()
     |> build_graph
@@ -96,7 +96,7 @@ defmodule Day6 do
   def part2 do
     "priv/d06p1"
     |> File.stream!()
-    |> Stream.map(&String.strip/1)
+    |> Stream.map(&String.trim/1)
     |> Stream.map(fn line -> String.split(line, ")") end)
     |> Enum.to_list()
     |> build_graph

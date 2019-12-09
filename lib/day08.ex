@@ -47,8 +47,8 @@ defmodule Day8 do
   def create_layers(number, width, height) do
     number
     |> Integer.digits()
-    |> Enum.chunk(width)
-    |> Enum.chunk(height)
+    |> Enum.chunk_every(width)
+    |> Enum.chunk_every(height)
   end
 
   @doc """

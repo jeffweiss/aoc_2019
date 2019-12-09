@@ -36,8 +36,8 @@ defmodule Day4 do
   """
   def has_double?([]), do: false
   def has_double?([_]), do: false
-  def has_double?([x, x | rest]), do: true
-  def has_double?([x | rest]), do: has_double?(rest)
+  def has_double?([x, x | _rest]), do: true
+  def has_double?([_x | rest]), do: has_double?(rest)
 
   def increasing?([_]), do: true
 
@@ -71,19 +71,19 @@ defmodule Day4 do
   def bulk_match?([x, x, x, x, x, _]), do: true
   def bulk_match?([x, x, x, x, y, y]), do: false
   def bulk_match?([y, y, x, x, x, _]), do: false
-  def bulk_match?([y, z, x, x, x, _]), do: true
+  def bulk_match?([_y, _z, x, x, x, _]), do: true
   def bulk_match?([_, x, x, x, x, _]), do: true
   def bulk_match?([_, x, x, x, x, _]), do: true
   def bulk_match?([x, x, x, y, y, y]), do: true
-  def bulk_match?([x, x, x, z, y, y]), do: false
-  def bulk_match?([x, x, x, y, y, z]), do: false
+  def bulk_match?([x, x, x, _z, y, y]), do: false
+  def bulk_match?([x, x, x, y, y, _z]), do: false
   def bulk_match?([x, x, x, _, _, _]), do: true
   def bulk_match?([_, x, x, x, y, y]), do: false
-  def bulk_match?([_, x, x, x, y, z]), do: true
+  def bulk_match?([_, x, x, x, _y, _z]), do: true
   def bulk_match?([y, y, x, x, x, _]), do: false
   def bulk_match?([_, y, y, x, x, x]), do: false
   def bulk_match?([y, y, _, x, x, x]), do: false
   def bulk_match?([_, _, _, x, x, x]), do: true
-  def bulk_match?([y, z, x, x, x, _]), do: true
+  def bulk_match?([_y, _z, x, x, x, _]), do: true
   def bulk_match?(_), do: false
 end

@@ -120,7 +120,7 @@ defmodule IntCode do
     cpu.relative_base + param
   end
 
-  def evaluate_param(param, _, cpu, :destination) do
+  def evaluate_param(param, _, _cpu, :destination) do
     param
   end
 
