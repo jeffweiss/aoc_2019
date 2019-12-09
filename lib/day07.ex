@@ -510,7 +510,6 @@ defmodule Day7 do
   ]
 
   defmodule Amp do
-
     @doc """
     ## Examples
         iex> Day7.run([1,0,0,0,99])
@@ -623,10 +622,12 @@ defmodule Day7 do
       receive do
         {:input, x} ->
           {{:pc, 2}, List.replace_at(list, p1, x), [], outputs}
+
         {:output_val, x} ->
           {{:pc, 2}, List.replace_at(list, p1, x), [], outputs}
+
         {:output_pid, pid} ->
-          do_operation(opcode, list, [], [pid|outputs])
+          do_operation(opcode, list, [], [pid | outputs])
       end
     end
 
@@ -797,10 +798,10 @@ defmodule Day7 do
     send(c_pid, {:output_pid, d_pid})
     send(d_pid, {:output_pid, e_pid})
     send(a_pid, {:input, 0})
+
     receive do
       {:output_val, x} -> x
     end
-
   end
 
   @doc """
@@ -834,15 +835,16 @@ defmodule Day7 do
         else
           x
         end
-      after
-        500 ->
-          if Process.alive?(pid) do
-            wait_for_final_answer_from(pid, val)
-          else
-            val
-          end
+    after
+      500 ->
+        if Process.alive?(pid) do
+          wait_for_final_answer_from(pid, val)
+        else
+          val
+        end
     end
   end
+
   def run_with_input(list, noun, verb) do
     modified_list =
       list
@@ -875,7 +877,7 @@ defmodule Day7 do
   @doc """
   ## Examples
       iex> Day7.part2
-      [236453]
+      8271623
   """
   def part2 do
     perms =
