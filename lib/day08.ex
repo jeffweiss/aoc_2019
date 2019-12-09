@@ -18,7 +18,8 @@ defmodule Day8 do
   @doc """
   ## Examples
       iex> Day8.part2
-      [ [[1,2,3],[4,5,6]], [[7,8,9], [0,1,2]] ]
+      :ok
+
   """
   def part2 do
     IO.puts("")
@@ -87,10 +88,8 @@ defmodule Day8 do
         # IO.inspect(tuple_size(pixel), label: "layers in pixel")
         pixel
         |> Tuple.to_list()
-        |> IO.inspect(limit: :infinity, label: "pixel layers")
         |> Enum.drop_while(&(&1 == 2))
         |> List.first()
-        |> IO.inspect(label: "pixel used")
       end)
     end
   end
@@ -98,7 +97,7 @@ defmodule Day8 do
   @doc """
   ## Examples
       iex> Day8.print_image( [ [0,1], [1,0] ] )
-      " 0\\n0 "
+      "X.\\n.X"
   """
   def print_image(image) do
     Enum.map(image, fn row ->
